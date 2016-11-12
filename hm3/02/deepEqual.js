@@ -29,11 +29,10 @@ let deepEqual = function (obj1, obj2) {
         for (let prop in obj1) {
             if (obj2.hasOwnProperty(prop)) {
                 let propType = typeof obj1[prop];
+                let propValue1 = obj1[prop],
+                    propValue2 = obj2[prop];
                 switch (propType) {
                     case 'object':
-                        let propValue1 = obj1[prop],
-                            propValue2 = obj2[prop];
-
                         if (propValue1 instanceof Date && propValue2 instanceof Date && !(propValue1.valueOf() === propValue2.valueOf())) {
                             return false;
                         }
@@ -44,8 +43,13 @@ let deepEqual = function (obj1, obj2) {
                             return false;
                         }
                         break;
+                    case 'function':
+                        if (propValue1.toString() != propValue2.toString()) {
+                            return false;
+                        }
+                        break;
                     default:
-                        if (obj1[prop] !== obj2[prop]) {
+                        if (propValue1 !== propValue2) {
                             return false;
                         }
                         break;
