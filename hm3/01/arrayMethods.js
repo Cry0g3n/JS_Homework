@@ -1,5 +1,9 @@
 'use strict';
 
+let _push = function (array, elem) {
+    array[array.length] = elem;
+};
+
 let _forEach = function (array, callback) {
     array = array || [];
     if (typeof callback === 'function') {
@@ -15,7 +19,7 @@ let _filter = function (array, callback) {
     if (typeof callback === 'function') {
         for (let item of array) {
             if (callback(item)) {
-                items.push(item);
+                _push(items, item);
             }
         }
         return items;
@@ -27,7 +31,7 @@ let _map = function (array, callback) {
     let items = [];
     if (typeof callback === 'function') {
         for (let item of array) {
-            items.push(callback(item));
+            _push(items, callback(item));
         }
         return items;
     }
@@ -55,7 +59,7 @@ let _slice = function (array, begin, end) {
     }
 
     for (let i = begin; i < end; i++) {
-        result.push(array[i]);
+        _push(result, array[i]);
     }
 
     return result;
@@ -84,7 +88,7 @@ let _splice = function (array, start, deleteCount) {
             let result = [];
             _forEach(arguments, arr => {
                 for (var item of arr) {
-                    result.push(item);
+                    _push(result, item);
                 }
             });
             return result;
