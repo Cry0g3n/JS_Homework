@@ -50,8 +50,8 @@ let _slice = function (array, begin, end) {
 
     if (!end || end > array.length) {
         end = array.length;
-        end = checkIdx(end);
     }
+    end = checkIdx(end);
 
     begin = checkIdx(begin);
     if (begin < 0) {
@@ -69,12 +69,14 @@ let _reduce = function (array, callback, initialValue) {
     if (!array.length && !initialValue) {
         throw Error('Reduce of empty array with no initial value');
     }
+    let startIdx = 0;
     if (!initialValue) {
         initialValue = array[0];
+        startIdx = 1;
     }
     let result = initialValue;
 
-    for (let i = 1, l = array.length; i < l; i++) {
+    for (let i = startIdx, l = array.length; i < l; i++) {
         result = callback(result, array[i], i, array);
     }
 
@@ -107,7 +109,7 @@ let _splice = function (array, start, deleteCount) {
         start = array.length + start;
     }
 
-    if (!deleteCount) {
+    if (!deleteCount && deleteCount !== 0) {
         deleteCount = array.length - start;
     }
 
