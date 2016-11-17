@@ -33,24 +33,22 @@ function scanDOM() {
 
     let printResult = function (result) {
         for (let item in result) {
-            if (result.hasOwnProperty(item)) {
-                switch (item) {
-                    case 'textNodesCount':
-                        console.log('Текстовых узлов: ' + result[item]);
-                        break;
-                    case 'classes':
-                        let classes = result[item] || {};
-                        for (let cl in classes) {
-                            console.log('Элементов с классом ' + cl + ': ' + classes[cl]);
-                        }
-                        break;
-                    case 'tags':
-                        let tags = result[item] || {};
-                        for (let tag in tags) {
-                            console.log('Тэгов ' + tag.toLowerCase() + ': ' + tags[tag]);
-                        }
-                        break;
-                }
+            switch (item) {
+                case 'textNodesCount':
+                    console.log('Текстовых узлов: ' + result[item]);
+                    break;
+                case 'classes':
+                    let classes = result[item] || {};
+                    for (let cl in classes) {
+                        console.log('Элементов с классом ' + cl + ': ' + classes[cl]);
+                    }
+                    break;
+                case 'tags':
+                    let tags = result[item] || {};
+                    for (let tag in tags) {
+                        console.log('Тэгов ' + tag.toLowerCase() + ': ' + tags[tag]);
+                    }
+                    break;
             }
         }
     };
