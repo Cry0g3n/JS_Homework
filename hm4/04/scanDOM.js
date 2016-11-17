@@ -14,18 +14,14 @@ function scanDOM() {
                 result['textNodesCount'] = ++count;
             }
             else {
-                if (!result['classes']) {
-                    result['classes'] = {};
-                }
+                result['classes'] = result['classes'] || {};
                 let classes = result['classes'];
                 for (let cl of classList) {
                     let classCount = classes[cl] || 0;
                     classes[cl] = ++classCount;
                 }
 
-                if (!result['tags']) {
-                    result['tags'] = {};
-                }
+                result['tags'] = result['tags'] || {};
                 let tags = result['tags'];
                 let tagCount = tags[nodeName] || 0;
                 tags[nodeName] = ++tagCount;
@@ -45,17 +41,13 @@ function scanDOM() {
                     case 'classes':
                         let classes = result[item] || {};
                         for (let cl in classes) {
-                            if (classes.hasOwnProperty(cl)) {
-                                console.log('Элементов с классом ' + cl + ': ' + classes[cl]);
-                            }
+                            console.log('Элементов с классом ' + cl + ': ' + classes[cl]);
                         }
                         break;
                     case 'tags':
                         let tags = result[item] || {};
                         for (let tag in tags) {
-                            if (tags.hasOwnProperty(tag)) {
-                                console.log('Тэгов ' + tag.toLowerCase() + ': ' + tags[tag]);
-                            }
+                            console.log('Тэгов ' + tag.toLowerCase() + ': ' + tags[tag]);
                         }
                         break;
                 }
