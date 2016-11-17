@@ -1,0 +1,134 @@
+$orange_color: #ff8663;
+$white_color: #e7e7e7;
+$grey_color: #696666;
+
+body {
+  font: 15px 'Fira Sans', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700&subset=cyrillic');
+
+.accordion {
+  padding: 0;
+  margin: auto;
+  max-width: 460px;
+}
+
+.accordion__item {
+  list-style: none;
+  padding: 0;
+  margin: 5px;
+  overflow: hidden;
+  border-radius: 20px;
+
+  &:nth-child(odd) {
+    background-color: $white_color;
+    .accordion__item-toggle {
+      background-color: $grey_color;
+      color: $white_color;
+    }
+  }
+
+  &:nth-child(even) {
+    background-color: $white_color;
+    .accordion__item-toggle {
+      color: $grey_color;
+    }
+  }
+}
+
+.accordion__item-toggle {
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  height: 22px;
+  overflow: hidden;
+  transition: background .2s ease-in-out, color .2s ease-in-out;
+  border-radius: 50px;
+
+  &:hover {
+    background: $orange_color !important;
+    color: $white_color !important;
+    .accordion__item-triangle {
+      border-top-color: $white_color;
+      transition: border .3s ease-in-out;
+    }
+  }
+}
+
+.accordion__item-content {
+  transition: max-height .3s ease-in-out;
+  overflow: hidden;
+  max-height: 0;
+  background-color: $white_color;
+}
+
+.accordion__item_open {
+  .accordion__item-content {
+    max-height: 150px;
+  }
+
+  .accordion__item-toggle {
+    background-color: $orange_color !important;
+    color: $white_color !important;
+  }
+
+  .accordion__item-triangle {
+    border-bottom: 12px solid $white_color;
+    border-top: none;
+  }
+}
+
+.accordion__item-text {
+  padding: 10px;
+  margin: 0;
+  font-weight: 300;
+}
+
+.accordion__item-title {
+  font-size: 0;
+  font-weight: 500;
+  height: 100%;
+}
+
+.accordion__item-title_left, .accordion__item-title_right {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+}
+
+.accordion__item-title_left {
+  width: 85%;
+  padding-left: 5px;
+  font-size: 15px;
+}
+
+.accordion__item-title_right {
+  width: 15%;
+  text-align: right;
+  padding-right: 5px;
+}
+
+.accordion__item-triangle {
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 12px solid $orange_color;
+}
+
+.vam:before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.accordion__item-title_text {
+  display: inline-block;
+  vertical-align: middle;
+}
