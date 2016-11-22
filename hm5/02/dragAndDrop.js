@@ -3,8 +3,7 @@ let container = document.querySelector('.container'),
     minSizeValue = 50,
     maxSizeValue = 500,
     minCoordValue = 0,
-    maxCoordValue = 500,
-    lastElem;
+    maxCoordValue = 500;
 
 function getRandomValueByRange(minValue, maxValue) {
     return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
@@ -19,10 +18,6 @@ function getRandomColor() {
 }
 
 function dragAndDrop() {
-    if (lastElem) {
-        lastElem.remove();
-    }
-
     let width = getRandomValueByRange(minSizeValue, maxSizeValue),
         height = getRandomValueByRange(minSizeValue, maxSizeValue),
         left = getRandomValueByRange(minCoordValue, maxCoordValue),
@@ -39,10 +34,16 @@ function dragAndDrop() {
     randomRect.style.left = left + 'px';
     randomRect.style.top = top + 'px';
     randomRect.style.backgroundColor = color;
+    randomRect.className = 'rectangle';
 
     container.appendChild(randomRect);
 
     randomRect.addEventListener('mousedown', function (e) {
+        let children = document.querySelectorAll('.rectangle');
+        for (let item of children) {
+            item.style.zIndex = 1;
+        }
+        e.target.style.zIndex = 1000;
         currentElem = e.target;
         startY = e.layerY;
         startX = e.layerX;
@@ -58,8 +59,6 @@ function dragAndDrop() {
             randomRect.style.left = e.clientX - startX + 'px';
         }
     });
-
-    lastElem = randomRect;
 }
 
 button.addEventListener('click', dragAndDrop);
