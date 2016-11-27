@@ -25,9 +25,13 @@ getCities(url).then(function (res) {
         return item['name'];
     }).sort();
 
+    let list = document.createDocumentFragment();
+
     for (let city of resList) {
         let cityElem = document.createElement('li');
         cityElem.textContent = city;
-        cityListElem.appendChild(cityElem);
+        list.appendChild(cityElem);
     }
+
+    cityListElem.appendChild(list);
 });
