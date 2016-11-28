@@ -18,15 +18,32 @@ let url = 'https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.j
 
 getCities(url).then(function (res) {
     let resList = JSON.parse(res) || [],
-        cityListElem = document.querySelector('.city_list');
+        cityInput = document.querySelector('.city');
 
     resList = resList.map(function (item) {
         return item['name'];
     }).sort();
 
-    for (let city of resList) {
-        let cityElem = document.createElement('option');
-        cityElem.value = city;
-        cityListElem.appendChild(cityElem);
-    }
+    cityInput.addEventListener('input', function (e) {
+        let cityListElemOld = document.querySelector('.cityList'),
+            cityListContainer = document.querySelector('.city_container'),
+            cityListElem = document.createElement('ul'),
+            searchValue = this.value;
+
+        if (cityListElemOld) {
+            cityListElemOld.remove();
+        }
+        if (!searchValue) {
+            return;
+        }
+        cityListElem.className = 'cityList';
+        for (let city of resList) {
+            if (city.toLowerCase().includes(searchValue.toLowerCase())) {
+                let cityElem = document.createElement('li');
+                cityElem.textContent = city;
+                cityListElem.appendChild(cityElem);
+            }
+        }
+        cityListContainer.appendChild(cityListElem);
+    });
 });

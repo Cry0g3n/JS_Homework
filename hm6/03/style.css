@@ -1,3 +1,15 @@
-input::-webkit-calendar-picker-indicator {
-    display: none;
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+    border: 1px solid grey;
+    padding: 1px;
+}
+
+.city_container {
+    margin-left: 36px;
+    width: 173px;
 }
