@@ -1,0 +1,23 @@
+td {
+    border: 1px solid grey;
+    padding: 5px;
+    min-width: 250px;
+    text-align: center;
+}
+
+th {
+    border: 1px solid grey;
+    padding: 5px;
+    min-width: 250px;
+    text-align: center;
+}
+
+.form_container {
+    margin: 0 auto;
+    width: 250px;
+    margin-top: 25px;
+}
+
+.cookie_button {
+    margin-top: 5px;
+}
