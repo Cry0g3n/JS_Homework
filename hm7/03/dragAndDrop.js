@@ -85,7 +85,7 @@ let getCookieList = function () {
     for (let i = 0; i < cookies.length; i++) {
         let cookieArr = cookies[i].split('=');
         let cookie = {
-            name: cookieArr[0],
+            name: cookieArr[0].trim(),
             value: cookieArr[1]
         };
         cookieList.push(cookie);
