@@ -118,6 +118,6 @@ cookieForm.addEventListener('submit', function (e) {
     if (!checkCookieForm(cookie)) {
         return;
     }
-    addCookie();
+    addCookie(cookie);
     updateCookieTable();
 });
