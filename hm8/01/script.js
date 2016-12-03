@@ -21,17 +21,12 @@ getCities(url).then(function (res) {
         cityInput = document.querySelector('.city'),
         template = Handlebars.compile(document.querySelector('#city_template').innerHTML);
 
-    cityInput.addEventListener('input', function (e) {
+    let cityInputHandler = function () {
         let cityListElem = document.querySelector('.city_list'),
             searchValue = this.value;
 
-        if (!searchValue) {
-            cityListElem.innerHTML = "";
-            return;
-        }
-
         let filterList = resList.filter(function (city) {
-            if (city['name'].toLowerCase().includes(searchValue.toLowerCase())) {
+            if (!searchValue || city['name'].toLowerCase().includes(searchValue.toLowerCase())) {
                 return true;
             }
         });
@@ -42,5 +37,8 @@ getCities(url).then(function (res) {
         else {
             cityListElem.innerHTML = "";
         }
-    });
+    };
+
+    cityInputHandler();
+    cityInput.addEventListener('input', cityInputHandler);
 });

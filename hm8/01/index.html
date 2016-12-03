@@ -13,18 +13,17 @@
     <label for="city">City:</label>
     <input type="text" id="city" class="city">
     <div class="city_container">
-        <ul class="city_list">
-            <script id="city_template" type="text/x-handlebars-template">
-                {{#each cities}}
-                <li>
-                    {{name}}
-                </li>
-                {{/each}}
-            </script>
-        </ul>
+        <ul class="city_list"></ul>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+<script id="city_template" type="text/x-handlebars-template">
+    {{#each cities}}
+    <li>
+        {{name}}
+    </li>
+    {{/each}}
+</script>
 <script src="script.js"></script>
 </body>
 </html>
