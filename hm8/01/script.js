@@ -29,6 +29,11 @@ getCities(url).then(function (res) {
             if (!searchValue || city['name'].toLowerCase().includes(searchValue.toLowerCase())) {
                 return true;
             }
+        }).sort(function (a, b) {
+            if (a['name'] > b['name']) {
+                return 1;
+            }
+            return -1;
         });
 
         if (filterList.length) {
