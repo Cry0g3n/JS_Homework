@@ -1,0 +1,163 @@
+$orange: #ff8663;
+$white: #ffffff;
+$grey: #f0f0f0;
+
+@import "_misc/fonts";
+@import "_misc/layout";
+
+.filter_title {
+  width: $container-width;
+  height: 47px;
+  border-radius: 10px 10px 0 0;
+  background-color: $orange;
+  font-size: 0;
+}
+
+.filter_title--left, .filter_title--right {
+  width: $container-width/2;
+  display: inline-block;
+  height: 47px;
+  font-size: 16px;
+  font-weight: 500;
+  color: $white;
+}
+
+.filter_title-text {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.search {
+  font-size: 0;
+  height: 47px;
+  background-color: $grey;
+}
+
+.search--left, .search--right {
+  width: $container-width/2;
+  display: inline-block;
+  font-size: 12px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.search--base, .search--custom {
+  width: 284px;
+  height: 26px;
+  border-radius: 10px;
+  border: none;
+  padding: 4px 30px;
+  background: url('../assets/img/icons/search.png') no-repeat 8px;
+  background-color: $white;
+  outline: none;
+}
+
+.filter_list {
+  height: 357px;
+  font-size: 0;
+}
+
+.filter_list--left, .filter_list--right {
+  font-size: 12px;
+  width: $container-width/2;
+  display: inline-block;
+  height: 357px;
+  text-align: center;
+  background-color: $white;
+}
+
+.filter_list--base, .filter_list--custom {
+  width: 310px;
+  display: inline-block;
+}
+
+.filter_list--base-title, .filter_list--custom-title {
+  text-align: left;
+  margin-bottom: 6px;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.filter_save {
+  width: $container-width;
+  height: 47px;
+  border-radius: 0 0 10px 10px;
+  background-color: $grey;
+  text-align: right;
+}
+
+.filter_list--base-content, .filter_list--custom-content {
+  overflow-y: scroll;
+  height: 325px;
+}
+
+.friend_info {
+  font-size: 0;
+  height: 60px;
+  text-align: left;
+}
+
+.friend_avatar {
+  display: inline-block;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.friend_name {
+  font-size: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 175px;
+  height: 60px;
+  font-weight: 500;
+  overflow: hidden;
+}
+
+.friend_action-button {
+  display: inline-block;
+  height: 60px;
+  width: 30px;
+  text-align: center;
+}
+
+.add, .remove {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  cursor: hand;
+}
+
+.add {
+  background: url('../assets/img/icons/add.png') center center no-repeat;
+}
+
+.remove {
+  background: url('../assets/img/icons/remove.png') center center no-repeat;
+}
+
+.save {
+  text-decoration: none;
+  color: $white;
+  background-color: $orange;
+  border-radius: 5px;
+  padding: 9px 14px;
+  margin-right: 8px;
+}
+
+.friend {
+  padding-left: 20px;
+  border-top: 1px solid $grey;
+
+  &:last-child {
+    border-bottom: 1px solid $grey;
+  }
+
+  &:hover {
+    background-color: $grey;
+    transition: .2s;
+  }
+}
