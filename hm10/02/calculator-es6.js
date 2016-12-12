@@ -65,5 +65,6 @@ class SqrCalc extends Calculator {
 }
 
 module.exports = {
+    Calculator: Calculator,
     SqrCalc: SqrCalc
 };
