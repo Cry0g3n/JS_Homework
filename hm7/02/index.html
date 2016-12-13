@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cookies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<table class="cookies" cellspacing="0" align="center">
+    <thead class="cookies__header">
+    <tr>
+        <th>Имя</th>
+        <th>Значение</th>
+        <th>Удаление</th>
+    </tr>
+    </thead>
+</table>
+<div class="form_container">
+    <form id="cookie_form">
+        <div>
+            <div class="cookie_title">
+                <label for="cookie_name">Название</label>
+            </div>
+            <input type="text" id="cookie_name">
+
+        </div>
+        <div>
+            <div class="cookie_title">
+                <label for="cookie_value" class="cookie_title">Значение</label>
+            </div>
+            <input type="text" id="cookie_value">
+        </div>
+        <div>
+            <div class="cookie_title">
+                <label for="cookie_expired_date" class="cookie_title">Срок годности</label>
+            </div>
+            <input type="number" id="cookie_expired_date">
+        </div>
+        <div>
+            <div class="cookie_button">
+                <input class="cookie__form-button" name="" type="submit" value="Добавить">
+            </div>
+        </div>
+    </form>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
