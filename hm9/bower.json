@@ -1,0 +1,22 @@
+{
+  "name": "friend-filter",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Andrew <andrey.shemiakov@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Cry0g3n/JS_Homework",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "^5.0.0",
+    "handlebars": "^4.0.5"
+  }
+}
