@@ -1,0 +1,27 @@
+.user_name {
+    height: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.user_age {
+    height: 20px;
+}
+
+.user_birthdate {
+    height: 20px;
+}
+
+.friend_photo {
+    text-align: center;
+}
+
+.friend_photo, .friend_info {
+    padding: 10px;
+    border: 1px solid dodgerblue;
+    box-sizing: border-box;
+}
+
+.friend_info {
+    height: 122px;
+}
