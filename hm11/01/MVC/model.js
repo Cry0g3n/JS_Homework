@@ -39,5 +39,28 @@ var Model = {
     },
     getGroups: function () {
         return this.callApi('groups.get', {extended: 1, v: 5.60});
+    },
+    getPhoto: function () {
+        return this.callApi('photos.getAll', {extended: 1, v: 5.60}).then(function (photos) {
+            return Model.getPhotoComments().then(function (comments) {
+                return new Promise(function (resolve) {
+                    for (let photo of photos.items) {
+                        let photoId = photo['id'];
+                        photo.comments = photo.comments || {};
+                        photo.comments.count = photo.comments.count || 0;
+                        for (let comment of comments.items) {
+                            let commentPhotoId = comment['pid'];
+                            if (photoId == commentPhotoId) {
+                                photo.comments.count++;
+                            }
+                        }
+                    }
+                    resolve(photos);
+                });
+            })
+        });
+    },
+    getPhotoComments: function () {
+        return this.callApi('photos.getAllComments', {extended: 1, v: 5.60});
     }
 };
