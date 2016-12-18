@@ -1,0 +1,13 @@
+.friend {
+    float: left;
+    margin: 15px;
+}
+
+.photo {
+    margin-bottom: 25px;
+    display: flex;
+}
+
+.photo_image {
+    width: 100%;
+}
