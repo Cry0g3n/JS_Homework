@@ -100,7 +100,7 @@ let deleteCookie = function (cookieName) {
     document.cookie = cookieName + "=" + "; expires=" + curDate.toUTCString();
 };
 
-let cookieList = getCookieList();
+let cookieList = getCookieList() || [];
 for (let cookie of cookieList) {
     if (cookie['name'] == 'rectangles') {
         let value = cookie['value'];
