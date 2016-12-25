@@ -1,3 +1,5 @@
+var Controller = require('./controller');
+
 var Router = {
     handle: function (route) {
         var routeName = route + 'Route';
@@ -5,3 +7,5 @@ var Router = {
         Controller[routeName]();
     }
 };
+
+module.exports = Router;

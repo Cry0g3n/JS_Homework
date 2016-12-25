@@ -38,3 +38,5 @@ var Model = {
         return this.callApi('newsfeed.get', {filters: 'post', count: 20});
     }
 };
+
+module.exports = Model;

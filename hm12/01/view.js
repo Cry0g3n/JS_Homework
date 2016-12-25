@@ -9,3 +9,5 @@ var View = {
         return renderFn(model);
     }
 };
+
+module.exports = View;

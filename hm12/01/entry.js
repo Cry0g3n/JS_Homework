@@ -1,3 +1,7 @@
+var Model = require('./model'),
+    Router = require('./router'),
+    View = require('./view');
+
 Handlebars.registerHelper('formatTime', function (time) {
     var minutes = parseInt(time / 60),
         seconds = time - minutes * 60;
@@ -19,6 +23,13 @@ new Promise(function (resolve) {
 }).then(function () {
     return Model.getUser().then(function (users) {
         header.innerHTML = View.render('header', users[0]);
+    });
+}).then(function () {
+    document.addEventListener('click', function (event) {
+        var route = event.target.dataset.route;
+        if (route) {
+            Router.handle(route);
+        }
     });
 }).catch(function (e) {
     console.error(e);
