@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Гео-отзыв</title>
+    <link rel="stylesheet" href="styles/build.css"/>
+    <!-- build:css css/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+</head>
+<body>
+<div id="map" style="width: 600px; height: 400px"></div>
+<!-- build:js js/vendor.js -->
+<!-- bower:js -->
+<!-- endbower -->
+<!-- endbuild -->
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<!-- build:js js/script.js -->
+<script src="js/script.js"></script>
+<!-- endbuild -->
+<script type="text/x-handlebars-template" id="form">
+    <div class="balloon">
+        <div class="balloon_header">
+            <div class="balloon_header--left vam">
+                <div class="balloon_address">
+                    <span class="glyphicon glyphicon-map-marker"></span>{{address}}
+                </div>
+            </div>
+            <div class="balloon_header--right vam">
+                <div class="balloon_close">
+
+                </div>
+            </div>
+        </div>
+        <div class="balloon_content">
+            <div class="comments">
+                {{#if comments}}
+                {{#each comments}}
+                <ul class="comments--list">
+                    <li class="comments--item">
+                        <div>
+                            <span class="comments--item_name">{{name}}</span>
+                            <span class="comments--item_place">{{place}}</span>
+                            <span class="comments--item_date">{{date}}</span>
+                        </div>
+                        <div class="comments--item_description">{{description}}</div>
+                    </li>
+                </ul>
+                {{/each}}
+                {{else}}
+                <p class="comments_none">Отзывов пока нет...</p>
+                {{/if}}
+            </div>
+            <div class="add_comment">
+                <h4 class="add_comment--title">ВАШ ОТЗЫВ</h4>
+                <div><input type="text" placeholder="Ваше имя" class="add_comment--name"></div>
+                <div><input type="text" placeholder="Укажите место" class="add_comment--place"></div>
+                <div><textarea placeholder="Поделитесь впечатлениями" class="add_comment--description"></textarea></div>
+            </div>
+        </div>
+        <div class="buttons_panel vam">
+            <a class="buttons_panel--add" href="#">Добавить</a>
+        </div>
+    </div>
+</script>
+</body>
+</html>
