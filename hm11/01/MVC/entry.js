@@ -18,7 +18,7 @@ new Promise(function (resolve) {
     return Model.login(5267932, 2 | 4 | 8 | 8192 | 262144);
 }).then(function () {
     return Model.getUser().then(function (users) {
-        header.innerHTML = View.render('header', users[0]);
+        header.innerHTML = Balloon.render('header', users[0]);
     });
 }).catch(function (e) {
     console.error(e);
